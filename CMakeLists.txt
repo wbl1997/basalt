@@ -428,6 +428,12 @@ target_link_libraries(basalt_time_alignment basalt pangolin basalt::cli11)
 add_executable(basalt_kitti_eval src/kitti_eval.cpp)
 target_link_libraries(basalt_kitti_eval basalt::basalt-headers basalt::cli11)
 
+add_executable(basalt_tum_pose_to_imu src/tum_pose_to_imu.cpp)
+target_link_libraries(basalt_tum_pose_to_imu basalt rosbag)
+
+add_executable(basalt_tum_pose_to_imu_discrete src/tum_pose_to_imu_discrete.cpp)
+target_link_libraries(basalt_tum_pose_to_imu_discrete basalt rosbag)
+
 find_package(realsense2 QUIET)
 if(realsense2_FOUND)
   add_executable(basalt_rs_t265_record src/rs_t265_record.cpp src/device/rs_t265.cpp)
