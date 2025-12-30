@@ -199,9 +199,8 @@ int main(int argc, char** argv) {
     std::cout << "Input pose avg interval: " << (total_duration_ns / (times_ns.size() - 1) * 1e-9) << " s\n";
 
     // 4) build Se3Spline with padding + time alignment
-    // 注意：使用4阶样条可以减少相位差，但需要至少2阶导数
     // 5阶样条支持到3阶导数，相位误差稍大但更平滑
-    constexpr int ORDER = 4;  // 改为4阶以减少相位差
+    constexpr int ORDER = 5;
     constexpr int PAD = ORDER - 1; // 3
 
     basalt::Se3Spline<ORDER> spline(dt_knot_ns);
